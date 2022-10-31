@@ -62,10 +62,7 @@ function onTextAreaChanged(mirrorEl, extensionEl, port) {
 		timeout = window.setTimeout(function() {
 			port.postMessage({
 				action: `inspectContent`,
-				options: {
-					text: value,
-					origin: window.location.origin,
-				}
+				options: { text: value }
 			});
 		}, 1600);
 	}
@@ -82,10 +79,7 @@ function firstTextInspection(targetEl, mirrorEl, extensionEl, port) {
 	extensionEl.setDotStatus({ status: `loading` });
 	port.postMessage({
 		action: `inspectContent`,
-		options: {
-			text: value,
-			origin: location.origin
-		}
+		options: { text: value }
 	});
 }
 export function onTextAreaFocused({activeEl, mirrorEl, extensionEl, port}) {
@@ -126,10 +120,7 @@ function onEditableChanged(mirrorEl, extensionEl, activeEl, port) {
 		timeout = window.setTimeout(function() {
 			port.postMessage({
 				action: `inspectContent`,
-				options: {
-					text: innerText,
-					origin: location.origin,
-				}
+				options: { text: innerText }
 			});
 		}, 1600);
 	};
@@ -147,10 +138,7 @@ function firstElementInspection(targetEl, mirrorEl, extensionEl, port) {
 	extensionEl.setDotStatus({ status: `loading` });
 	port.postMessage({
 		action: `inspectContent`,
-		options: {
-			text: innerText,
-			origin: location.origin,
-		}
+		options: { text: innerText }
 	});
 }
 export function onEditableElementFocused({ activeEl, mirrorEl, extensionEl, port }) {
